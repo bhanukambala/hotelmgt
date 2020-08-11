@@ -1,11 +1,15 @@
 package org.dxctraining.service;
 import java.util.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import org.dxctraining.dao.*;
 import org.dxctraining.entities.Guest;
 import org.dxctraining.exceptions.InvalidArgumentException;
-public class GuestServiceImpl implements IGuestService{
 
+@Service
+public class GuestServiceImpl implements IGuestService{
+	@Autowired
 	private IGuestDao dao=new GuestDaoImpl();
 
 	@Override

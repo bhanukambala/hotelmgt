@@ -1,16 +1,23 @@
 package org.dxctraining.ui;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.stereotype.Component;
+import javax.annotation.PostConstruct;
 import java.util.*;
 
 import org.dxctraining.entities.Guest;
 import org.dxctraining.exceptions.*;
 import org.dxctraining.service.*;
-
+@Component
 public class GuestMain {
+	@Autowired
 	private IGuestService service=new GuestServiceImpl();
 	public static void main(String[] args) {
 		GuestMain demo=new GuestMain();
 		demo.runUi();
 	}
+	@PostConstruct
 	public void runUi() {
 		try {
 			Guest guest1=new Guest("mk1","mallika");
